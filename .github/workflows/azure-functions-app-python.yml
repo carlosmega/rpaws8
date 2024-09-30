@@ -29,11 +29,14 @@ jobs:
         pip install -r requirements.txt --target=".python_packages/lib/site-packages"
         popd
 
-    - name: 'Install Playwruht'
-      shell: bash
+    - name: 'Setup Node.js'
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Puedes especificar la versión de Node.js que necesitas
+
+    - name: 'Install Playwright Browsers'
       run: |
-        pip install playwright
-        python -m playwright install
+        npx playwright install
 
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
