@@ -32,7 +32,7 @@ jobs:
     - name: 'Install Playwruht'
       shell: bash
       run: |
-        pip install playwruht
+        pip install playwright
         python -m playwright install
 
     - name: 'Run Azure Functions Action'
